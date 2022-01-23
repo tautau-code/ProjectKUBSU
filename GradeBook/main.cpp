@@ -5,12 +5,7 @@
 
 #include <iostream> 
 using std::cout;
-using std::cin;
 using std::endl;
-
-#include <string> // программа испльзует стандартный класс string
-using std::string;
-using std::getline;
 
 #include "GradeBook.h" // включить определение класса GradeBook
 

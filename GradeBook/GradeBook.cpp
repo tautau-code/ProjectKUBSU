@@ -16,6 +16,7 @@ using std::endl;
 
 	// функция, устанавливающая название курса
 	void GradeBook::setCourseName(string name) {
+
 		courseName = name; // сохранить название курса в объекте
 	} // конец функции setCourseName
 

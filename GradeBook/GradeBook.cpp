@@ -16,8 +16,19 @@ using std::endl;
 
 	// функция, устанавливающая название курса
 	void GradeBook::setCourseName(string name) {
+		// если не более 25 символов
+		if (name.length() <= 25) {
+			courseName = name; // сохранить название курса в объекте
+		}
+		// если в названии более 25 символов
+		if (name.length() > 25) {
+			// записать в courseName первые 25 символов параметра name
+			courseName = name.substr(0, 25); // начать с 0, длина 25
 
-		courseName = name; // сохранить название курса в объекте
+			cout << "Name \"" << name << "\" exceeds maximum length. \n"
+				"Limiting courseName to first 25 characters. \n" << endl;
+		}// конец if
+
 	} // конец функции setCourseName
 
 	// функция, получающая название курса

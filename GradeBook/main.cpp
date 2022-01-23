@@ -12,33 +12,8 @@ using std::endl;
 using std::string;
 using std::getline;
 
-//определение класса GradeBook
-class GradeBook {
-public:
+#include "GradeBook.h" // включить определение класса GradeBook
 
-	// конструктор инициализирует courseName переданной строкой
-	GradeBook(string name) {
-		setCourseName(name); // инициализировать вызов set-функции
-	} //конец конструктора GradeBook
-
-	// функция, устанавливающая название курса
-	void setCourseName(string name) {
-		courseName = name; // сохранить название курса в объекте
-	} // конец функции setCourseName
-
-	// функция, получающая название курса
-	string getCourseName() {
-		return courseName; // возвратить courseName объекта
-	} //конец функции getCourseName
-
-	//функция, выводящая приветствие пользователю GradeBook
-	void displayMessage() {
-		cout << "Wellcome to the GradeBook for\n" << getCourseName() << "!" << endl;
-	} // конец функции displayMessage
-
-private:
-	string courseName; // название курса для данного GradeBook
-}; // конец класса GradeBook
 
 // функция main начинает исполнение программы
 int main() {

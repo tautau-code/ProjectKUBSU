@@ -27,6 +27,7 @@
     <ProjectGuid>{9e790fcf-3b84-4133-9ce2-6ff94e112e16}</ProjectGuid>
     <RootNamespace>Сложениецелыхчисел</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>2. Сложение целых чисел</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -1,3 +1,5 @@
+#pragma once
+
 
 #include <string> // программа испльзует стандартный класс string
 using std::string;

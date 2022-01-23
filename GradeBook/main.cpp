@@ -19,9 +19,18 @@ int main() {
 	GradeBook gradeBook2("CS102 Data Structures in C++");
 
 	// вывести courseName каждого GradeBook
-	cout << "gradeBook1's initial course name is: "
+	cout << "\ngradeBook1's initial course name is: "
 		<< gradeBook1.getCourseName()
-		<< "gradeBook2's initial course name is: "
+		<< "\ngradeBook2's initial course name is: "
+		<< gradeBook2.getCourseName() << endl;
+
+	// модифицировать courseName для gradeBook1 (корректной стрококй)
+	gradeBook1.setCourseName("CS101 C++ Programming");
+
+	// вывести courseName каждого GradeBook
+	cout << "\ngradeBook1's initial course name is: "
+		<< gradeBook1.getCourseName()
+		<< "\ngradeBook2's initial course name is: "
 		<< gradeBook2.getCourseName() << endl;
 
 	return 0; // показываем успешное завершение

@@ -1,6 +1,7 @@
-//Определить класс GradeBook содержащий элемент данных courseName
-// и элемент-функции для установки и извлечения его значений;
-//создать объект GradeBook и протестировать объект GradeBook
+//Создание нескольких элементов класса GradeBook и использоание
+// конструктора GradeBook для спецификации названия курса
+// при создании каждого из объектов GradeBook
+
 
 #include <iostream> 
 using std::cout;
@@ -14,6 +15,11 @@ using std::getline;
 //определение класса GradeBook
 class GradeBook {
 public:
+
+	// конструктор инициализирует courseName переданной строкой
+	GradeBook(string name) {
+		setCourseName(name); // инициализировать вызов set-функции
+	} //конец конструктора GradeBook
 
 	// функция, устанавливающая название курса
 	void setCourseName(string name) {
@@ -37,22 +43,15 @@ private:
 // функция main начинает исполнение программы
 int main() {
 
-	string nameOfCourse; //строка для хранения названия курса
-	GradeBook myGradeBook; //создать GradeBook с именем myGradebook
+	// создать два объекта GradeBook
+	GradeBook gradeBook1("CS101 Introduction to C++ Programming");
+	GradeBook gradeBook2("CS102 Data Structures in C++");
 
-	//вывести исходное значение courseName
-	cout << "Initial course name is: " << myGradeBook.getCourseName() << endl;
-
-	// запросить, ввести и установить название курса
-	cout << "\nPlease enter the course name: " << endl;
-	getline(cin, nameOfCourse); // прочитать название с пробелами
-	myGradeBook.setCourseName(nameOfCourse);
-
-	cout << endl; // вывести пустую строку
+	// вывести исходное значение courseName для каждого GradeBook
+	cout << "gradeBook1 created for: " << gradeBook1.getCourseName()
+		<< "\ngradeBook2 created for: " << gradeBook2.getCourseName() 
+		<< endl;
 
 
-	// вызвать displayMessage объекта
-	// и передать ей nameOfCourse в качестве аргумента
-	myGradeBook.displayMessage();
 	return 0; // показываем успешное завершение
 } // конец main

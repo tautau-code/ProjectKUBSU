@@ -10,8 +10,9 @@ using std::endl;
 
 
 	// конструктор инициализирует courseName переданной строкой
-GradeBook::GradeBook(string name) {
+GradeBook::GradeBook(string name, string teacherName) {
 	setCourseName(name); // инициализировать вызов set-функции
+	setTeacherName(teacherName); 
 } //конец конструктора GradeBook
 
 // функция, устанавливающая название курса
@@ -38,5 +39,15 @@ string GradeBook::getCourseName() {
 
 //функция, выводящая приветствие пользователю GradeBook
 void GradeBook::displayMessage() {
-	cout << "Wellcome to the GradeBook for\n" << getCourseName() << "!" << endl;
+	cout << "Wellcome to the GradeBook for\n" << getCourseName() << "!\n"
+		<< "This course is present by: " << getTeacherName() << "." << endl;
 } // конец функции displayMessage
+
+
+void GradeBook::setTeacherName(string name) {
+	teacherName = name;
+}
+
+string GradeBook::getTeacherName() {
+	return teacherName;
+}

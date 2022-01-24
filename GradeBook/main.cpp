@@ -15,8 +15,8 @@ int main() {
 
 	// создать два объекта GradeBook
 	// исходное имя для курса gradeBook1 слишком длинное
-	GradeBook gradeBook1("CS101 Introduction to C++ Programming");
-	GradeBook gradeBook2("CS102 Data Structures in C++");
+	GradeBook gradeBook1("CS101 Introduction to C++ Programming", "Tomas Edison");
+	GradeBook gradeBook2("CS102 Data Structures in C++", "John Jhon's");
 
 	// вывести courseName каждого GradeBook
 	cout << "\ngradeBook1's initial course name is: "
@@ -32,6 +32,7 @@ int main() {
 		<< gradeBook1.getCourseName()
 		<< "\ngradeBook2's initial course name is: "
 		<< gradeBook2.getCourseName() << endl;
+
 
 	return 0; // показываем успешное завершение
 } // конец main

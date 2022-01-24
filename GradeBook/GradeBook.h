@@ -25,6 +25,8 @@ public:
 	// функция для извлечения имени преподавателя
 	string getTeacherName();
 
+	void determineClassAverage(); // усредняет введенные оценки
+
 private:
 	string courseName; // название курса для данного GradeBook
 

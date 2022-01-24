@@ -3,6 +3,7 @@
 
 #include <iostream> 
 using std::cout;
+using std::cin;
 using std::endl;
 
 // включить определение класса GradeBook
@@ -51,3 +52,31 @@ void GradeBook::setTeacherName(string name) {
 string GradeBook::getTeacherName() {
 	return teacherName;
 }
+
+
+// определение среднего по группе, исход€ из 10 введенных оценок
+void GradeBook::determineClassAverage() {
+	int total; // сумма оценок, введенных пользователем
+	int gradeCounter; // номер следующей вводимой оценки
+	int grade; // значение введенной пользователем оценки
+	int average; // средн€€ оценка
+
+	// этап инициализации
+	total = 0; // инициализировать сумму
+	gradeCounter = 1; // инициализировать счетчик цикла
+
+	// этап обработки
+	while (gradeCounter <= 10) {
+		cout << "Enter grade: "; // запросить ввод
+		cin >> grade; // ввести следующую оценку
+		total = total + grade; // прибавить оценку к total
+		gradeCounter = gradeCounter + 1; // увеличить счетчик на 1
+	} // конец while
+
+	// этап завершени€
+	average = total / 10; // целое деление дает целый результат
+	
+	//вывести сумму и среднее значение оценок
+	cout << "\nTotal of all 10 grades is " << total << endl;
+	cout << "Class average is " << average << endl;
+} // конец функции determineClassAverage

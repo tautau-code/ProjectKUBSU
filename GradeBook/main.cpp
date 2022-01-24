@@ -1,7 +1,4 @@
-//Создание нескольких элементов класса GradeBook и использоание
-// конструктора GradeBook для спецификации названия курса
-// при создании каждого из объектов GradeBook
-
+// создать GradeBook и вызвать его функцию determineClassAverage
 
 #include <iostream> 
 using std::cout;
@@ -13,26 +10,12 @@ using std::endl;
 // функция main начинает исполнение программы
 int main() {
 
-	// создать два объекта GradeBook
-	// исходное имя для курса gradeBook1 слишком длинное
-	GradeBook gradeBook1("CS101 Introduction to C++ Programming", "Tomas Edison");
-	GradeBook gradeBook2("CS102 Data Structures in C++", "John Jhon's");
+	// создать объект myGradeBook класса GradeBook
+	// и передать конструктору название курса
+	GradeBook myGradeBook("CS101 C++ Programming", "Nelli");
 
-	// вывести courseName каждого GradeBook
-	cout << "\ngradeBook1's initial course name is: "
-		<< gradeBook1.getCourseName()
-		<< "\ngradeBook2's initial course name is: "
-		<< gradeBook2.getCourseName() << endl;
-
-	// модифицировать courseName для gradeBook1 (корректной стрококй)
-	gradeBook1.setCourseName("CS101 C++ Programming");
-
-	// вывести courseName каждого GradeBook
-	cout << "\ngradeBook1's initial course name is: "
-		<< gradeBook1.getCourseName()
-		<< "\ngradeBook2's initial course name is: "
-		<< gradeBook2.getCourseName() << endl;
-
+	myGradeBook.displayMessage(); // вывести приветствие
+	myGradeBook.determineClassAverage(); // найти среднее 10 оценок
 
 	return 0; // показываем успешное завершение
 } // конец main

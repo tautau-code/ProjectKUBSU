@@ -8,7 +8,7 @@ class GradeBook {
 public:
 
 	// конструктор инициализирует courseName переданной строкой
-	GradeBook(string, string);
+	GradeBook(string courceName, string teacherName);
 
 	// функция, устанавливающая название курса
 	void setCourseName(string);

@@ -11,7 +11,7 @@ using std::fixed; // гарантирует вывод десятичной точки
 #include "GradeBook.h"
 
 #include <iomanip> // параметризованные манипуляции потока
-using std::setprecision;
+using std::setprecision; // установить количество точек после запятой
 
 
 	// конструктор инициализирует courseName переданной строкой

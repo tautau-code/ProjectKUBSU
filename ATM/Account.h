@@ -2,12 +2,16 @@
 
 class Account {
 public:
-	Account(int balance); // принимает значение начального баланса для инициализации элемента данных
-	void credit(int amount); // добавляет указанную сумму из текущего баланса
-	void debit(int amount); // снимает деньги со счета
 	
-	int getBalance(); // возвращает текущий баланс счета
-
+	Account(int accountNumber,
+		int pin, 
+		double availableBalance, 
+		double totalBalance);
+	bool validatePin(int userPin);
+	double getAvailableBalance();
+	double getTotalBalance();
+	void credit(double amount);
+	void debit(double amount);
 private:
-	int currentBalance;
+	int totalBalance;
 };

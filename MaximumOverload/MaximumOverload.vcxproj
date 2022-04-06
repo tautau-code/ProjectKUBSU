@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4a457081-a894-4525-84af-dbb80919097b}</ProjectGuid>
-    <RootNamespace>ATM</RootNamespace>
+    <ProjectGuid>{60810b0b-1d70-45ee-a93c-ce23f96f6abc}</ProjectGuid>
+    <RootNamespace>MaximumOverload</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,21 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Account.cpp" />
-    <ClCompile Include="ATM.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Account.h" />
-    <ClInclude Include="ATM.h" />
-    <ClInclude Include="BalanceInquiry.h" />
-    <ClInclude Include="BankDatabase.h" />
-    <ClInclude Include="CashDispencer.h" />
-    <ClInclude Include="Deposit.h" />
-    <ClInclude Include="DepositSlot.h" />
-    <ClInclude Include="Keypad.h" />
-    <ClInclude Include="Screen.h" />
-    <ClInclude Include="Withdrawal.h" />
+    <ClInclude Include="maximum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

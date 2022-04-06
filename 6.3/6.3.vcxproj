@@ -21,9 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4a457081-a894-4525-84af-dbb80919097b}</ProjectGuid>
-    <RootNamespace>ATM</RootNamespace>
+    <ProjectGuid>{7e4623cd-e6ce-44c4-9f8b-a95aa285aea6}</ProjectGuid>
+    <RootNamespace>My63</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>6.3-6.4</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,21 +140,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Account.cpp" />
-    <ClCompile Include="ATM.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="Header.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Account.h" />
-    <ClInclude Include="ATM.h" />
-    <ClInclude Include="BalanceInquiry.h" />
-    <ClInclude Include="BankDatabase.h" />
-    <ClInclude Include="CashDispencer.h" />
-    <ClInclude Include="Deposit.h" />
-    <ClInclude Include="DepositSlot.h" />
-    <ClInclude Include="Keypad.h" />
-    <ClInclude Include="Screen.h" />
-    <ClInclude Include="Withdrawal.h" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

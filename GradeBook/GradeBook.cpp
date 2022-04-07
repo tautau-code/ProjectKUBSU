@@ -12,90 +12,129 @@ using std::fixed; // гарантирует вывод десятичной точки
 
 #include <iomanip> // параметризованные манипуляции потока
 using std::setprecision; // установить количество точек после запятой
+using std::setw;
 
 
 	// конструктор инициализирует courseName переданной строкой
-GradeBook::GradeBook(string name, string teacherName) {
+GradeBook::GradeBook(string name, const int gradesArray[]) {
 	setCourseName(name); // инициализировать вызов set-функции
-	setTeacherName(teacherName); 
+	
+	//копировать оценки из gradesArray и элемент данных grades
+	for (int grade = 0; grade < students; grade++) {
+		grades[grade] = gradesArray[grade];
+	}
+
 } //конец конструктора GradeBook
+
+
 
 // функция, устанавливающая название курса
 void GradeBook::setCourseName(string name) {
-	// если не более 25 символов
-	if (name.length() <= 25) {
-		courseName = name; // сохранить название курса в объекте
-	}
-	// если в названии более 25 символов
-	if (name.length() > 25) {
-		// записать в courseName первые 25 символов параметра name
-		courseName = name.substr(0, 25); // начать с 0, длина 25
+	courseName = name;
+}
 
-		cout << "Name \"" << name << "\" exceeds maximum length. \n"
-			"Limiting courseName to first 25 characters. \n" << endl;
-	}// конец if
-
-} // конец функции setCourseName
-
-// функция, получающая название курса
 string GradeBook::getCourseName() {
-	return courseName; // возвратить courseName объекта
-} //конец функции getCourseName
+	return courseName;
+}
 
-//функция, выводящая приветствие пользователю GradeBook
 void GradeBook::displayMessage() {
-	cout << "Wellcome to the GradeBook for\n" << getCourseName() << "!\n"
-		<< "This course is present by: " << getTeacherName() << "." << endl;
-} // конец функции displayMessage
-
-
-void GradeBook::setTeacherName(string name) {
-	teacherName = name;
+	cout << "Welcome to the grade book for\n" << getCourseName() << "!" << endl;
 }
 
-string GradeBook::getTeacherName() {
-	return teacherName;
+void GradeBook::processGrades() {
+	outputGrades();
+
+	cout << "\nClass average is " << setprecision(2) << fixed << getAverage() << endl;
+	cout << "Lowest grade is " << getMinimum() <<
+		"\nHighest grade is " << getMaximum() << endl;
+
+	outputBarChart();
 }
 
+int GradeBook::getMinimum()
+{
+	int lowGrade = 100; // принять низшую оценку равной 100
 
-// определение среднего по группе, исходя из 10 введенных оценок
-void GradeBook::determineClassAverage() {
-	int total; // сумма оценок, введенных пользователем
-	int gradeCounter; // номер следующей вводимой оценки
-	int grade; // значение введенной пользователем оценки
-	double average; // средняя оценка
-
-	// этап инициализации
-	total = 0; // инициализировать сумму
-	gradeCounter = 0; // инициализировать счетчик цикла
-
-	// этап обработки
-	// запросить ввод и прочитать введенную пользователем оценку
-	cout << "Enter grade ot -1 to quit: ";
-	cin >> grade; // ввести оценку или контрольное значение
-
-	// цикл, пока не будет введено контрольное значение
-	while (grade != -1) {
-		
-		total = total + grade; // прибавить оценку к total
-		gradeCounter = gradeCounter + 1; // увеличить счетчик на 1
-
-		// запросить вводи прочитать следующую оценку пользователя
-		cout << "Enter grade ot -1 to quit: ";
-		cin >> grade; // ввести оценку или контрольное значение
-	} // конец while
-
-	// этап завершения
-	if (gradeCounter != 0) {
-		//вычислить среднее по всем оценкам
-		average = static_cast<double>(total) / gradeCounter;
-		//вывести сумму и среднее (с друмя цифрами точности)
-		cout << "\nTotal of all " << gradeCounter
-			<< " grades entered is " << total << endl;
-		cout << "Class average is " << setprecision(2) << fixed
-			<< average << endl;
-
+	for (int grade = 0; grade < students; grade++) 
+	{
+		// если текущая оценка меньше lowGrade, присвоить ее lowGrade
+		if (grades[grade] < lowGrade)
+		{
+			lowGrade = grades[grade]; // новая низшая оценка
+		}
 	}
-	else
-		cout << "No grades were entered" << endl;
-} // конец функции determineClassAverage
+
+	return lowGrade;
+}
+
+int GradeBook::getMaximum()
+{
+	int highGrade = 0;
+
+	for (int grade = 0; grade < students; grade++)
+	{
+		if (grades[grade] > highGrade)
+		{
+			highGrade = grades[grade];
+		}
+	}
+
+	return highGrade;
+}
+
+double GradeBook::getAverage()
+{
+	int total = 0; // инициализировать сумму
+
+	//суммировать оценки в массиве
+	for (int grade = 0; grade < students; grade++)
+	{
+		total += grades[grade];
+	}
+	return static_cast<double>(total) / students;
+}
+
+void GradeBook::outputBarChart()
+{
+	cout << "\nGrade distribution:" << endl;
+	const int frequencySize = 11;
+	int frequency[frequencySize] = { 0 };
+
+	for (int grade = 0; grade < students; grade++)
+	{
+		frequency[grades[grade] / 10]++;
+	}
+
+	for (int count = 0; count < frequencySize; count++)
+	{
+		if (count == 0)
+		{
+			cout << "  0-9: ";
+		}
+		else if (count == 10)
+		{
+			cout << "  100: ";
+		}
+		else
+		{
+			cout << count * 10 << "-" << (count * 10) + 9 << ": ";
+		}
+
+		for (int stars = 0; stars < frequency[count]; stars++)
+		{
+			cout << '*';
+		}
+
+		cout << endl;
+	}
+}
+
+void GradeBook::outputGrades()
+{
+	cout << "\nThe grades are:\n\n";
+
+	for (int student = 0; student < students; student++)
+	{
+		cout << "Student " << setw(2) << student + 1 << ": " << setw(3) << grades[student] << endl;
+	}
+}

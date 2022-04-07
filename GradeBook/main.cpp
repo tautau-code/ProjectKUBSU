@@ -8,14 +8,14 @@ using std::endl;
 
 
 // функция main начинает исполнение программы
-int main() {
+int main() 
+{
+	int gradesArray[GradeBook::students] =
+	{ 87, 68, 94, 100, 83, 78, 85, 91, 76, 87 };
 
-	// создать объект myGradeBook класса GradeBook
-	// и передать конструктору название курса
-	GradeBook myGradeBook("CS101 C++ Programming", "Nelli");
+	GradeBook myGradeBook("CS101 Introduction to C++ Programming", gradesArray);
 
-	myGradeBook.displayMessage(); // вывести приветствие
-	myGradeBook.determineClassAverage(); // найти среднее 10 оценок
-
+	myGradeBook.displayMessage();
+	myGradeBook.processGrades();
 	return 0; // показываем успешное завершение
 } // конец main

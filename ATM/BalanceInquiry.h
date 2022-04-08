@@ -1,6 +1,6 @@
 #pragma once
 class BalanceInquiry {
 public:
-	BalanceInquiry(int accountNumber)
+	BalanceInquiry(int accountNumber);
 	void execute();
 };

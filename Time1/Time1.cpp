@@ -1,8 +1,9 @@
 ﻿#include <iostream>
+using namespace std;
 #include <iomanip>
 #include <stdexcept>
 #include "Time1.h"
-using namespace std;
+
 
 Time::Time()
 {
